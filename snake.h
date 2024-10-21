@@ -26,6 +26,8 @@ void drawCircle(SDL_Renderer* renderer, int x, int y, int radius);
 
 void renderFruit(SDL_Renderer* renderer, SDL_Texture* texture, int fruitIndex, int x, int y);
 
+void draw_border(SDL_Renderer* renderer);
+
 SDL_Texture* loadTexture(const char* file, SDL_Renderer* renderer);
 
 

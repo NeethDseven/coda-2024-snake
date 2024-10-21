@@ -7,7 +7,9 @@
 #define WINDOW_HEIGHT 800
 #define SEGMENT_SIZE 20
 #define MAX_LENGTH 50
+#define BORDER_THICKNESS 10
 
+static const SDL_Color BORDER_COLOR = {178, 34, 34, 255};
 static const SDL_Color SNAKE_COLORS[] = {
     {255, 0, 0, 255},
     {0, 255, 0, 255},

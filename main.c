@@ -134,7 +134,9 @@ int main() {
                 }
             }
         }
-
+        if (paused) {
+        SDL_RenderCopy(renderer, pauseTexture, NULL, NULL);
+        }
         if (!paused) {
             int nouvelle_x = tete->x + direction_x;
             int nouvelle_y = tete->y + direction_y;
@@ -152,6 +154,7 @@ int main() {
                 Mix_PlayChannel(-1, collisionSound, 0);
                 SDL_RenderCopy(renderer, biteTexture, NULL, NULL);
                 SDL_RenderPresent(renderer);
+                Mix_HaltMusic();
                 SDL_Delay(4000);
                 break;
             }
@@ -169,6 +172,7 @@ int main() {
                 Mix_PlayChannel(-1, victorySound, 0);
                 SDL_RenderCopy(renderer, victoryTexture, NULL, NULL);
                 SDL_RenderPresent(renderer);
+                Mix_HaltMusic();
                 SDL_Delay(8000);
                 break;
             }
@@ -209,6 +213,8 @@ int main() {
         SDL_RenderCopy(renderer, nourritureTexture, NULL, &nourritureRect);
         SDL_FreeSurface(nourritureSurface);
         SDL_DestroyTexture(nourritureTexture);
+
+        draw_border(renderer);
 
         SDL_RenderPresent(renderer);
         SDL_Delay(120);
